@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		CB9CDD860FBA40D2007AB3C3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CDD850FBA40D2007AB3C3 /* Carbon.framework */; };
+		CB9CDD920FBA4100007AB3C3 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CDD8D0FBA4100007AB3C3 /* Controller.m */; };
+		CB9CDD930FBA4100007AB3C3 /* OSCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CDD8F0FBA4100007AB3C3 /* OSCServer.m */; };
+		CB9CDD940FBA4100007AB3C3 /* TdxDevEvents.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB9CDD910FBA4100007AB3C3 /* TdxDevEvents.mm */; };
+		CB9CDDD30FBBE7A9007AB3C3 /* TdxDevEvents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CB9CDD900FBA4100007AB3C3 /* TdxDevEvents.h */; };
+		CB9CDDE70FBBE7F6007AB3C3 /* VVOSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CDDE60FBBE7F6007AB3C3 /* VVOSC.framework */; };
+		CB9CDE470FBBF126007AB3C3 /* 3DconnexionClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CDE460FBBF126007AB3C3 /* 3DconnexionClient.framework */; };
+		CB9CDE940FBC7F34007AB3C3 /* SpaceNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CDE930FBC7F34007AB3C3 /* SpaceNavigator.m */; };
+		CB9CE03F0FBCA34B007AB3C3 /* ButtonOff.tif in Resources */ = {isa = PBXBuildFile; fileRef = CB9CE03D0FBCA34B007AB3C3 /* ButtonOff.tif */; };
+		CB9CE0400FBCA34B007AB3C3 /* ButtonOn.tif in Resources */ = {isa = PBXBuildFile; fileRef = CB9CE03E0FBCA34B007AB3C3 /* ButtonOn.tif */; };
+		CB9CE0E50FBCC6B9007AB3C3 /* GUIController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CE0E40FBCC6B9007AB3C3 /* GUIController.m */; };
+		CB9CE14B0FBCCC39007AB3C3 /* WiiRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CE14A0FBCCC39007AB3C3 /* WiiRemote.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CB9CDDE30FBBE7AE007AB3C3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CB9CDDD30FBBE7A9007AB3C3 /* TdxDevEvents.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* MOSCOW_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSCOW_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* MOSCOW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOSCOW.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9CDD850FBA40D2007AB3C3 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		CB9CDD8C0FBA4100007AB3C3 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		CB9CDD8D0FBA4100007AB3C3 /* Controller.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = Controller.m; sourceTree = "<group>"; };
+		CB9CDD8E0FBA4100007AB3C3 /* OSCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCServer.h; sourceTree = "<group>"; };
+		CB9CDD8F0FBA4100007AB3C3 /* OSCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCServer.m; sourceTree = "<group>"; };
+		CB9CDD900FBA4100007AB3C3 /* TdxDevEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TdxDevEvents.h; sourceTree = "<group>"; };
+		CB9CDD910FBA4100007AB3C3 /* TdxDevEvents.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TdxDevEvents.mm; sourceTree = "<group>"; };
+		CB9CDDE60FBBE7F6007AB3C3 /* VVOSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVOSC.framework; sourceTree = "<group>"; };
+		CB9CDE460FBBF126007AB3C3 /* 3DconnexionClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = 3DconnexionClient.framework; path = /Library/Frameworks/3DconnexionClient.framework; sourceTree = "<absolute>"; };
+		CB9CDE920FBC7F34007AB3C3 /* SpaceNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceNavigator.h; sourceTree = "<group>"; };
+		CB9CDE930FBC7F34007AB3C3 /* SpaceNavigator.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SpaceNavigator.m; sourceTree = "<group>"; };
+		CB9CE03D0FBCA34B007AB3C3 /* ButtonOff.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = ButtonOff.tif; sourceTree = "<group>"; };
+		CB9CE03E0FBCA34B007AB3C3 /* ButtonOn.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = ButtonOn.tif; sourceTree = "<group>"; };
+		CB9CE0E30FBCC6B9007AB3C3 /* GUIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIController.h; sourceTree = "<group>"; };
+		CB9CE0E40FBCC6B9007AB3C3 /* GUIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUIController.m; sourceTree = "<group>"; };
+		CB9CE14A0FBCCC39007AB3C3 /* WiiRemote.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WiiRemote.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				CB9CDD860FBA40D2007AB3C3 /* Carbon.framework in Frameworks */,
+				CB9CDDE70FBBE7F6007AB3C3 /* VVOSC.framework in Frameworks */,
+				CB9CDE470FBBF126007AB3C3 /* 3DconnexionClient.framework in Frameworks */,
+				CB9CE14B0FBCCC39007AB3C3 /* WiiRemote.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CB9CE0E30FBCC6B9007AB3C3 /* GUIController.h */,
+				CB9CE0E40FBCC6B9007AB3C3 /* GUIController.m */,
+				CB9CDD8C0FBA4100007AB3C3 /* Controller.h */,
+				CB9CDD8D0FBA4100007AB3C3 /* Controller.m */,
+				CB9CDE920FBC7F34007AB3C3 /* SpaceNavigator.h */,
+				CB9CDE930FBC7F34007AB3C3 /* SpaceNavigator.m */,
+				CB9CDD8E0FBA4100007AB3C3 /* OSCServer.h */,
+				CB9CDD8F0FBA4100007AB3C3 /* OSCServer.m */,
+				CB9CE04B0FBCB648007AB3C3 /* libs */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB9CDE460FBBF126007AB3C3 /* 3DconnexionClient.framework */,
+				CB9CDD850FBA40D2007AB3C3 /* Carbon.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB9CE14A0FBCCC39007AB3C3 /* WiiRemote.framework */,
+				CB9CDDE60FBBE7F6007AB3C3 /* VVOSC.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* MOSCOW.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* MOSCOW */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = MOSCOW;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* MOSCOW_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CB9CE03D0FBCA34B007AB3C3 /* ButtonOff.tif */,
+				CB9CE03E0FBCA34B007AB3C3 /* ButtonOn.tif */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB9CE04B0FBCB648007AB3C3 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				CB9CDD900FBA4100007AB3C3 /* TdxDevEvents.h */,
+				CB9CDD910FBA4100007AB3C3 /* TdxDevEvents.mm */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* MOSCOW */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MOSCOW" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				CB9CDDE30FBBE7AE007AB3C3 /* CopyFiles */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MOSCOW;
+			productInstallPath = "$(HOME)/Applications";
+			productName = MOSCOW;
+			productReference = 8D1107320486CEB800E47090 /* MOSCOW.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MOSCOW" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* MOSCOW */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* MOSCOW */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				CB9CE03F0FBCA34B007AB3C3 /* ButtonOff.tif in Resources */,
+				CB9CE0400FBCA34B007AB3C3 /* ButtonOn.tif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				CB9CDD920FBA4100007AB3C3 /* Controller.m in Sources */,
+				CB9CDD930FBA4100007AB3C3 /* OSCServer.m in Sources */,
+				CB9CDD940FBA4100007AB3C3 /* TdxDevEvents.mm in Sources */,
+				CB9CDE940FBC7F34007AB3C3 /* SpaceNavigator.m in Sources */,
+				CB9CE0E50FBCC6B9007AB3C3 /* GUIController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MOSCOW_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/WiiRemoteFramework.build/Objects-normal/i386\"",
+					"\"$(SRCROOT)/WiiRemoteFramework.build/Objects-normal/ppc\"",
+				);
+				PRODUCT_NAME = MOSCOW;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MOSCOW_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/WiiRemoteFramework.build/Objects-normal/i386\"",
+					"\"$(SRCROOT)/WiiRemoteFramework.build/Objects-normal/ppc\"",
+				);
+				PRODUCT_NAME = MOSCOW;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MOSCOW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MOSCOW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
