@@ -23,6 +23,8 @@
 		CB9CE0400FBCA34B007AB3C3 /* ButtonOn.tif in Resources */ = {isa = PBXBuildFile; fileRef = CB9CE03E0FBCA34B007AB3C3 /* ButtonOn.tif */; };
 		CB9CE0E50FBCC6B9007AB3C3 /* GUIController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CE0E40FBCC6B9007AB3C3 /* GUIController.m */; };
 		CB9CE14B0FBCCC39007AB3C3 /* WiiRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CE14A0FBCCC39007AB3C3 /* WiiRemote.framework */; };
+		CB9CE1B00FBCD208007AB3C3 /* WiiRemote.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CB9CE14A0FBCCC39007AB3C3 /* WiiRemote.framework */; };
+		CB9CE1B10FBCD208007AB3C3 /* VVOSC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CB9CDDE60FBBE7F6007AB3C3 /* VVOSC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +35,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CB9CDDD30FBBE7A9007AB3C3 /* TdxDevEvents.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9CE19E0FBCD10A007AB3C3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CB9CE1B00FBCD208007AB3C3 /* WiiRemote.framework in CopyFiles */,
+				CB9CE1B10FBCD208007AB3C3 /* VVOSC.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +203,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				CB9CDDE30FBBE7AE007AB3C3 /* CopyFiles */,
+				CB9CE19E0FBCD10A007AB3C3 /* CopyFiles */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 			);
 			buildRules = (

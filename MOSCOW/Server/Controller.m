@@ -1,11 +1,14 @@
+//
+//  Controller.m
+//  MOSCOW
+//
+//  Created by Chandler McWilliams on 5/14/09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
+
 #import "Controller.h"
-#import "SpaceNavigator.h"
-
-// preference keys
-NSString * const kPort			= @"port";
-
-int pAxis_values[6];
-Controller *pGlobalControl;
+#import "OSCServer.h"
 
 
 @implementation Controller
@@ -20,59 +23,16 @@ Controller *pGlobalControl;
 		
 		// and our navigator
 		navigator = [[SpaceNavigator alloc] init];
+		[navigator setDelegate:self];
 		
+		// auto discover the wiimote
+		discovery = [[WiiRemoteDiscovery alloc] init];
+		[discovery setDelegate:self];
+		[discovery start];
 	 }
 
     return self;
 }
-
-// register for SN notifications
-- (void)applicationDidFinishLaunching:(NSNotification *)notification
-{
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(navigatorValuesChanged:)
-												 name:@"SpaceNavigatorValuesChanged" object:nil];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(navigatorLeftButtonChanged:)
-												 name:@"SpaceNavigatorLeftButtonChanged" object:nil];
-
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(navigatorRightButtonChanged:)
-												 name:@"SpaceNavigatorRightButtonChanged" object:nil];
-	
-}
-
-
-#pragma mark SpaceNavigator Actions
-// when the sn knob changes
-- (void)navigatorValuesChanged:(NSNotification *)notification
-{	
-	float *trans = [navigator translation];
-	[oscserver sendNavigatorTranslationX:trans[0]
-									   Y:trans[1]
-									   Z:trans[2]];
-
-	float *rotation = [navigator rotation];
-	[oscserver sendNavigatorRotationX:rotation[0]
-									Y:rotation[1]
-									Z:rotation[2]];
-	
-}
-
-// when the SN buttons change
-- (void)navigatorRightButtonChanged:(NSNotification *)notification
-{
-	[oscserver sendNavigatorRightButtonChanged:[(SpaceNavigator *)[notification object] rightButtonDown]];
-}
-
-- (void)navigatorLeftButtonChanged:(NSNotification *)notification
-{
-	[oscserver sendNavigatorLeftButtonChanged:[(SpaceNavigator *)[notification object] leftButtonDown]];
-}
-
-
-
 
 
 // sweet release
@@ -80,8 +40,142 @@ Controller *pGlobalControl;
 {
 	[oscserver release], oscserver = nil;
 	[navigator release], navigator = nil;
+
+	if (wii) {
+		[wii closeConnection];
+		[wii release], wii = nil;
+	}
+	if (discovery) [discovery release], discovery = nil;
+	
 	[super dealloc];
 }
+
+
+
+#pragma mark SpaceNavigator Delegate Methods
+// when the sn knob changes
+- (void)spaceNavigatorButtonChanged:(SpaceNavigatorButtonType)type isPressed:(BOOL)isPressed
+{
+	[oscserver sendNavigatorButton:((type == SpaceNavigatorRightButton)?2:1) isPressed:isPressed];
+}
+
+- (void)spaceNavigatorValuesChanged:(float *)translation rotation:(float *)rotation
+{
+	[oscserver sendNavigatorTranslationX:translation[0]
+									   Y:translation[1]
+									   Z:translation[2]];
+	
+	[oscserver sendNavigatorRotationX:rotation[0]
+									Y:rotation[1]
+									Z:rotation[2]];	
+}
+
+
+#pragma mark WiiMote Delegate Methods
+- (void)WiiRemoteDiscovered:(WiiRemote*)wiimote
+{
+	NSLog(@"Connected to WiiRemote.");	
+	[discovery stop];
+	
+	// just one for now...
+	wii = wiimote;
+	[wii setDelegate:self];
+	[wii setLEDEnabled1:NO enabled2:NO enabled3:NO enabled4:NO];
+	[wii setMotionSensorEnabled:YES];
+}
+
+- (void)WiiRemoteDiscoveryError:(int)code
+{
+	NSLog(@"Discovery error: %d.", code);
+}
+
+- (void)wiiRemoteDisconnected:(IOBluetoothDevice*)device
+{
+	NSLog(@"Disconnected from WiiMote: %@", wii);
+	[wii release], wii = nil;
+}
+
+#pragma mark WiiMote input handlers
+- (void)accelerationChanged:(WiiAccelerationSensorType)type accX:(unsigned char)accX accY:(unsigned char)accY accZ:(unsigned char)accZ wiiRemote:(WiiRemote*)wiiRemote
+{
+	[oscserver sendWiiMoteAccelerationX:(float)accX/255.0
+									  Y:(float)accY/255.0
+									  Z:(float)accZ/255.0];	
+}
+
+
+- (void)joyStickChanged:(WiiJoyStickType)type tiltX:(unsigned char)tiltX tiltY:(unsigned char)tiltY wiiRemote:(WiiRemote*)wiiRemote
+{
+	if (type == WiiNunchukJoyStick) {
+		[oscserver sendWiiMoteJoyStickX:(float)tiltX/255.0
+									  Y:(float)tiltY/255.0];
+	}
+}
+
+- (void)buttonChanged:(WiiButtonType)type isPressed:(BOOL)isPressed wiiRemote:(WiiRemote*)wiiRemote
+{
+	NSString *typeName;
+	switch(type) {
+		case WiiRemoteAButton:
+			typeName = @"A";
+			break;
+			
+		case WiiRemoteBButton:
+			typeName = @"B";
+			break;
+			
+		case WiiRemoteOneButton:
+			typeName = @"1";
+			break;
+			
+		case WiiRemoteTwoButton:
+			typeName = @"2";			
+			break;
+			
+		case WiiRemoteMinusButton:
+			typeName = @"Minus";			
+			break;
+			
+		case WiiRemoteHomeButton:
+			typeName = @"Home";			
+			break;
+			
+		case WiiRemotePlusButton:
+			typeName = @"Plus";			
+			break;
+			
+		case WiiRemoteUpButton:
+			typeName = @"Up";			
+			break;
+			
+		case WiiRemoteDownButton:
+			typeName = @"Down";			
+			break;
+			
+		case WiiRemoteLeftButton:
+			typeName = @"Left";			
+			break;
+			
+		case WiiRemoteRightButton:
+			typeName = @"Right";			
+			break;
+			
+		case WiiNunchukZButton:
+			typeName = @"A";			
+			break;
+			
+		case WiiNunchukCButton:
+			typeName = @"A";			
+			break;
+			
+		default:
+			break;
+	}
+	
+	[oscserver sendWiiMoteButton:typeName isPressed:isPressed];
+}
+
+
 
 
 
@@ -118,6 +212,7 @@ Controller *pGlobalControl;
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
+	[wii closeConnection];
 	return NSTerminateNow;
 }
 

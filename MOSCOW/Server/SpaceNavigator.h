@@ -11,6 +11,13 @@
 #import "TdxDevEvents.h"
 
 
+typedef UInt16 SpaceNavigatorButtonType;
+enum {
+	SpaceNavigatorRightButton,
+	SpaceNavigatorLeftButton
+};
+
+
 @interface SpaceNavigator : NSObject {
 	/** Holds the on/off state of the LED */
 	BOOL ledState;
@@ -23,21 +30,25 @@
 		
 	/** acceleration data */
 	float translation[3];	
-	float rotation[3];	
+	float rotation[3];
+	
+	id delegate;
+	
+	/** find out what our delegate wants */
+	BOOL delegateWantsValues;
+	BOOL delegateWantsButtons;
+
 }
+
+@property (nonatomic, retain) id delegate;
+@property (assign) BOOL leftButtonDown;
+@property (assign) BOOL rightButtonDown;
 
 /**
  Accessors for state
  */
-- (BOOL)leftButtonDown;
-- (void)setLeftButtonDown:(BOOL)val;
-
-- (BOOL)rightButtonDown;
-- (void)setRightButtonDown:(BOOL)val;
-
 - (float *)translation;
 - (float *)rotation;
-
 - (NSDictionary *)translationDictionary;
 - (NSDictionary *)rotationDictionary;
 
@@ -50,7 +61,7 @@
 /**
  Called when one of the axies values changes
  */
-- (void) valuesChanged:(int[6])values;
+- (void)valuesChanged:(int[6])values;
 
 /**
  Normalizes the SN values to 0-1
@@ -58,5 +69,12 @@
 - (float)normalizeNavigatorValue:(int)value;
 
 
+
+@end
+
+@interface NSObject( SpaceNavigatorDelegate )
+
+- (void)spaceNavigatorButtonChanged:(SpaceNavigatorButtonType)type isPressed:(BOOL)isPressed;
+- (void)spaceNavigatorValuesChanged:(float *)translation rotation:(float *)rotation;
 
 @end

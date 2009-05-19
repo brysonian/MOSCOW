@@ -26,15 +26,18 @@
 }
 
 - (id)initWithHost:(NSString *)host port:(int)port;
-
-- (void)sendNavigatorTranslationX:(float)x Y:(float)y Z:(float)z;
-- (void)sendNavigatorRotationX:(float)x Y:(float)y Z:(float)z;
-- (void)sendNavigatorLeftButtonChanged:(BOOL)down;
-- (void)sendNavigatorRightButtonChanged:(BOOL)down;
-
-
 - (void)setPort:(int)aport;
 - (void)setHost:(NSString *)ahost;
+
+#pragma mark Navigator Actions
+- (void)sendNavigatorTranslationX:(float)x Y:(float)y Z:(float)z;
+- (void)sendNavigatorRotationX:(float)x Y:(float)y Z:(float)z;
+- (void)sendNavigatorButton:(int)button isPressed:(BOOL)down;
+
+#pragma mark WiiMote Actions
+- (void)sendWiiMoteAccelerationX:(float)x Y:(float)y Z:(float)z;
+- (void)sendWiiMoteJoyStickX:(float)x Y:(float)y;
+- (void)sendWiiMoteButton:(NSString *)type isPressed:(BOOL)down;
 
 
 @end

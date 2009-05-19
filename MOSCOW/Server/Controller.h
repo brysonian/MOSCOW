@@ -1,39 +1,52 @@
-/** 
- 
- Application Controller for Edric WiiRemote proxy server.
- In addition to normally app controller features,
- The controller holds the state of LEDs for the wiimote. This is due to the WiiRemote Framework only having
- one master method to update all LED's at one time, so we have to save the state of all LEDs to allow the user to
- toggle a single LED.
- 
- */
-
+//
+//  Controller.h
+//  MOSCOW
+//
+//  Created by Chandler McWilliams on 5/14/09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
 #import <Cocoa/Cocoa.h>
 #import "TdxDevEvents.h"
-#import "OSCServer.h"
 
-@class SpaceNavigator;
+@class OSCServer;
+#import "SpaceNavigator.h"
+#import <WiiRemote/WiiRemote.h>
+#import <WiiRemote/WiiRemoteDiscovery.h>
+
 
 @interface Controller : NSObject
 {	
 	
 	SpaceNavigator *navigator;
 	OSCServer *oscserver;
+
+	/** Object which handles discovery of wiimote, part of the WiiRemote Framework */
+	WiiRemoteDiscovery *discovery;
 	
-	/** User's port */
+	/** Wii object to interface with the remote */
+	WiiRemote* wii;	
+	
+	/** User's OSC port */
 	int port;
 
-	/** User's host */
+	/** User's OSC host */
 	NSString *host;
 }
 
 
-/**
- Respond to navigator values changes
- */
-- (void)navigatorValuesChanged:(NSNotification *)notification;
-- (void)navigatorRightButtonChanged:(NSNotification *)notification;
-- (void)navigatorLeftButtonChanged:(NSNotification *)notification;
+#pragma mark SpaceNavigator Actions
+- (void)spaceNavigatorButtonChanged:(SpaceNavigatorButtonType)type isPressed:(BOOL)isPressed;
+- (void)spaceNavigatorValuesChanged:(float *)translation rotation:(float *)rotation;
+
+
+#pragma mark WiiMote Delegate Methods
+- (void)WiiRemoteDiscovered:(WiiRemote*)wiimote;
+- (void)WiiRemoteDiscoveryError:(int)code;
+- (void)wiiRemoteDisconnected:(IOBluetoothDevice*)device;
+- (void)accelerationChanged:(WiiAccelerationSensorType)type accX:(unsigned char)accX accY:(unsigned char)accY accZ:(unsigned char)accZ wiiRemote:(WiiRemote*)wiiRemote;
+- (void)joyStickChanged:(WiiJoyStickType)type tiltX:(unsigned char)tiltX tiltY:(unsigned char)tiltY wiiRemote:(WiiRemote*)wiiRemote;
+- (void)buttonChanged:(WiiButtonType)type isPressed:(BOOL)isPressed wiiRemote:(WiiRemote*)wiiRemote;
+
 
 
 

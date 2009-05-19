@@ -18,11 +18,9 @@
 #define kLEDOn 0x00010001
 #define kLEDOff 0x00010000
 
-#define kValuesChangedNotificationName @"SpaceNavigatorValuesChanged";
-
-NSString const *valuesChangedNotificationName = @"SpaceNavigatorValuesChanged";
-NSString const *buttonChangedNotificationFormat = @"SpaceNavigator%@ButtonChanged";
-NSString const *genericButtonChangedNotificationName = @"SpaceNavigatorButtonChanged";
+NSString *kSpaceNavigatorValuesChangedNotificationName = @"SpaceNavigatorValuesChanged";
+NSString *kSpaceNavigatorLeftButtonChangedNotificationName = @"SpaceNavigatorLeftButtonChanged";
+NSString *kSpaceNavigatorRightButtonChangedNotificationName = @"SpaceNavigatorRightButtonChanged";
 
 int pAxis_values[6];
 SpaceNavigator *pNavigator;
@@ -34,8 +32,6 @@ SpaceNavigator *pNavigator;
 #ifndef __TdxDeviceEvents_h__
 #define __TdxDeviceEvents_h__
 
-//#import <Carbon/Carbon.h>
-//#import <MacTypes.h>
 #import "3DconnexionClient/ConnexionClientAPI.h"
 
 // =============================================================================
@@ -143,12 +139,19 @@ namespace tdx
 
 
 
-
 @implementation SpaceNavigator
+
+@synthesize delegate;
+
+@synthesize leftButtonDown;
+@synthesize rightButtonDown;
+
 
 - (id)init
 {
 	if (self = [super init]) {
+		delegateWantsValues = NO;
+		delegateWantsButtons = NO;
 		if (InstallConnexionHandlers != NULL) {
 			BOOL ok = tdx::InitTdxDevice(kConnexionClientWildcard, true, kConnexionClientModeTakeOver, kConnexionMaskAll);
 			printf("SN device init OK? %d\n", ok);
@@ -156,6 +159,24 @@ namespace tdx
 		pNavigator = self;
 	}	
     return self;
+}
+
+- (void)dealloc
+{
+	[delegate release];
+	[super dealloc];
+}
+
+
+- (void)setDelegate:(id)del {
+    if (delegate != del) {
+		delegateWantsValues = [del respondsToSelector:@selector(spaceNavigatorValuesChanged:rotation:)];
+		delegateWantsButtons = [del respondsToSelector:@selector(spaceNavigatorButtonChanged:isPressed:)];
+		
+        [delegate release];
+		[del retain];
+        delegate = del;
+    }
 }
 
 
@@ -169,28 +190,20 @@ namespace tdx
 	rotation[0] = [self normalizeNavigatorValue:values[3]];
 	rotation[1] = [self normalizeNavigatorValue:values[4]];
 	rotation[2] = [self normalizeNavigatorValue:values[5]];
-
-	[[NSNotificationCenter defaultCenter] postNotificationName:valuesChangedNotificationName
-														object:self];
-
+	
+	if (delegateWantsValues) {
+		[self.delegate spaceNavigatorValuesChanged:translation rotation:rotation];
+	}
 }
 
 - (void)buttonChanged:(int)button isPressed:(BOOL)isPressed
 {
-	NSString *notificationName = [NSString stringWithFormat:buttonChangedNotificationFormat, 
-								  ((button == kSNLeftButton)?@"Left":@"Right")];
-
-	[[NSNotificationCenter defaultCenter]
-	 postNotificationName:notificationName object:self];
-
+	if (delegateWantsButtons) {
+		[self.delegate spaceNavigatorButtonChanged:((button == kSNLeftButton)?SpaceNavigatorLeftButton:SpaceNavigatorRightButton) isPressed:isPressed];
+	}
 }
 
 #pragma mark accessors
-- (BOOL)leftButtonDown { return leftButtonDown; }
-- (void)setLeftButtonDown:(BOOL)val { leftButtonDown = val; }
-- (BOOL)rightButtonDown { return rightButtonDown; }
-- (void)setRightButtonDown:(BOOL)val { rightButtonDown = val; }
-
 - (float *)translation { return translation; }
 - (float *)rotation { return rotation; }
 

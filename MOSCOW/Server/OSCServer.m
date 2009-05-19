@@ -8,9 +8,12 @@
 
 #define kNavigatorTranslationAddress @"/sp/1/trans/xyz"
 #define kNavigatorRotationAddress @"/sp/1/rot/xyz"
-#define kNavigatorLeftButtonAddress @"/sp/1/button/1"
-#define kNavigatorRightButtonAddress @"/sp/1/button/2"
+#define kNavigatorButtonAddressFormat @"/sp/1/button/%d"
 
+#define kWiiMoteAccerometerAddress @"/wii/1/accel/pry"
+#define kWiiMoteJoyStickAddress @"/wii/1/nunchuk/pry"
+
+#define kWiiMoteButtonAddressFormat @"/wii/1/button/%@"
 
 #import "OSCServer.h"
 
@@ -63,19 +66,39 @@
 	[outPort sendThisMessage:msg];
 }
 
-- (void)sendNavigatorLeftButtonChanged:(BOOL)down
+- (void)sendNavigatorButton:(int)button isPressed:(BOOL)down
 {
-	OSCMessage *msg = [OSCMessage createWithAddress:kNavigatorLeftButtonAddress];	
+	OSCMessage *msg = [OSCMessage createWithAddress:[NSString stringWithFormat:kNavigatorButtonAddressFormat, button]];	
 	[msg addFloat:(down?1.0:0.0)];
 	[outPort sendThisMessage:msg];
 }
 
-- (void)sendNavigatorRightButtonChanged:(BOOL)down
+
+#pragma mark WiiMote Methods
+- (void)sendWiiMoteAccelerationX:(float)x Y:(float)y Z:(float)z
 {
-	OSCMessage *msg = [OSCMessage createWithAddress:kNavigatorRightButtonAddress];	
+	OSCMessage *msg = [OSCMessage createWithAddress:kWiiMoteAccerometerAddress];	
+	[msg addFloat:x];
+	[msg addFloat:y];
+	[msg addFloat:z];
+	//[outPort sendThisMessage:msg];	
+}
+
+- (void)sendWiiMoteJoyStickX:(float)x Y:(float)y
+{
+	OSCMessage *msg = [OSCMessage createWithAddress:kWiiMoteJoyStickAddress];	
+	[msg addFloat:x];
+	[msg addFloat:y];
+	[outPort sendThisMessage:msg];	
+}
+
+- (void)sendWiiMoteButton:(NSString *)type isPressed:(BOOL)down;
+{	
+	OSCMessage *msg = [OSCMessage createWithAddress:[NSString stringWithFormat:kWiiMoteButtonAddressFormat, type]];	
 	[msg addFloat:(down?1.0:0.0)];
 	[outPort sendThisMessage:msg];
 }
+
 
 #pragma mark accessors
 - (void)setPort:(int)aport
