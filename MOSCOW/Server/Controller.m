@@ -3,7 +3,7 @@
 //  MOSCOW
 //
 //  Created by Chandler McWilliams on 5/14/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 RepetitionRepetition. All rights reserved.
 //
 
 
@@ -61,6 +61,7 @@
 
 - (void)spaceNavigatorValuesChanged:(float *)translation rotation:(float *)rotation
 {
+	
 	[oscserver sendNavigatorTranslationX:translation[0]
 									   Y:translation[1]
 									   Z:translation[2]];
@@ -215,10 +216,6 @@
 	[wii closeConnection];
 	return NSTerminateNow;
 }
-
-
-
-
 
 
 @end

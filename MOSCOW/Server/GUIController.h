@@ -3,16 +3,17 @@
 //  MOSCOW
 //
 //  Created by Chandler McWilliams on 5/14/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 RepetitionRepetition. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Controller.h"
 
 
-@interface GUIController : NSObject {
+@interface GUIController : Controller {
 	
-	/** Outlet for main window */
-	IBOutlet id mainWindow;
+	/** Outlet for SN HUD */
+	IBOutlet id spaceNavigatorHUD;
 	
 	/** Outlet for preferences window */
 	IBOutlet id prefPane;
@@ -22,12 +23,12 @@
 
 	
 	/** Monitor View Outlets */
-	IBOutlet id axis0Field;
-	IBOutlet id axis1Field;
-	IBOutlet id axis2Field;
-	IBOutlet id axis3Field;
-	IBOutlet id axis4Field;
-	IBOutlet id axis5Field;
+	IBOutlet id snTranslationX;
+	IBOutlet id snTranslationY;
+	IBOutlet id snTranslationZ;
+	IBOutlet id snRotationX;
+	IBOutlet id snRotationY;
+	IBOutlet id snRotationZ;
 	
 	IBOutlet id buttonLeft;
 	IBOutlet id buttonRight;

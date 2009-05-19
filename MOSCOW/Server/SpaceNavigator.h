@@ -3,7 +3,7 @@
 //  MOSCOW
 //
 //  Created by Chandler McWilliams on 5/14/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 RepetitionRepetition. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -43,6 +43,14 @@ enum {
 @property (nonatomic, retain) id delegate;
 @property (assign) BOOL leftButtonDown;
 @property (assign) BOOL rightButtonDown;
+
+@property (readonly) float translationX;
+@property (readonly) float translationY;
+@property (readonly) float translationZ;
+
+@property (readonly) float rotationX;
+@property (readonly) float rotationY;
+@property (readonly) float rotationZ;
 
 /**
  Accessors for state

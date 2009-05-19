@@ -3,7 +3,7 @@
 //  MOSCOW
 //
 //  Created by Chandler McWilliams on 5/12/09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright RepetitionRepetition 2009. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

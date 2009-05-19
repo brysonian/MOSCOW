@@ -3,8 +3,21 @@
 //  MOSCOW
 //
 //  Created by Chandler McWilliams on 5/14/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 RepetitionRepetition. All rights reserved.
 //
+
+/*
+ 
+ TODO:
+ let user set host
+ let user set port
+	these work via GUI and CLI
+ wiimote HUD
+ CLI target
+ expanded wiimote support  
+ 
+*/
+
 #import <Cocoa/Cocoa.h>
 #import "TdxDevEvents.h"
 
@@ -31,6 +44,7 @@
 
 	/** User's OSC host */
 	NSString *host;
+	
 }
 
 

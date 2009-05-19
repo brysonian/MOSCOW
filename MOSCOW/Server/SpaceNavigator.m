@@ -3,7 +3,7 @@
 //  MOSCOW
 //
 //  Created by Chandler McWilliams on 5/14/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 RepetitionRepetition. All rights reserved.
 //
 
 #import "SpaceNavigator.h"
@@ -204,6 +204,15 @@ namespace tdx
 }
 
 #pragma mark accessors
+- (float) translationX { return translation[0]; }
+- (float) translationY { return translation[1]; }
+- (float) translationZ { return translation[2]; }
+
+- (float) rotationX { return rotation[0]; }
+- (float) rotationY { return rotation[1]; }
+- (float) rotationZ { return rotation[2]; }
+
+
 - (float *)translation { return translation; }
 - (float *)rotation { return rotation; }
 
