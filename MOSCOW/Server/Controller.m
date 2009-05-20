@@ -107,7 +107,9 @@
 
 - (void)joyStickChanged:(WiiJoyStickType)type tiltX:(unsigned char)tiltX tiltY:(unsigned char)tiltY wiiRemote:(WiiRemote*)wiiRemote
 {
+	NSLog(@"joyStickChanged");
 	if (type == WiiNunchukJoyStick) {
+		NSLog(@"yes");
 		[oscserver sendWiiMoteJoyStickX:(float)tiltX/255.0
 									  Y:(float)tiltY/255.0];
 	}
@@ -162,11 +164,11 @@
 			break;
 			
 		case WiiNunchukZButton:
-			typeName = @"A";			
+			typeName = @"Z";			
 			break;
 			
 		case WiiNunchukCButton:
-			typeName = @"A";			
+			typeName = @"C";			
 			break;
 			
 		default:
