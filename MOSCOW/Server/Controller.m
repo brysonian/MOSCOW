@@ -22,8 +22,10 @@
 		oscserver = [[OSCServer alloc] initWithHost:host port:port];
 		
 		// and our navigator
-		navigator = [[SpaceNavigator alloc] init];
-		[navigator setDelegate:self];
+		if ([SpaceNavigator isAvailable]) {
+			navigator = [[SpaceNavigator alloc] init];
+			[navigator setDelegate:self];
+		}
 		
 		// auto discover the wiimote
 		discovery = [[WiiRemoteDiscovery alloc] init];
@@ -39,8 +41,9 @@
 - (void)dealloc
 {
 	[oscserver release], oscserver = nil;
-	[navigator release], navigator = nil;
 
+	if (navigator) [navigator release], navigator = nil;
+	
 	if (wii) {
 		[wii closeConnection];
 		[wii release], wii = nil;
@@ -70,6 +73,7 @@
 									Y:rotation[1]
 									Z:rotation[2]];	
 }
+
 
 
 #pragma mark WiiMote Delegate Methods

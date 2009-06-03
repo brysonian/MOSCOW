@@ -11,6 +11,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		CB66D8920FCC9E3F006B9905 /* wiiaccellbg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB66D8910FCC9E3F006B9905 /* wiiaccellbg.png */; };
+		CB66D89E0FCCBAFA006B9905 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CB66D89D0FCCBAFA006B9905 /* background.png */; };
 		CB7137700FC375FE00CB118A /* d-padOff.tif in Resources */ = {isa = PBXBuildFile; fileRef = CB71376E0FC375FE00CB118A /* d-padOff.tif */; };
 		CB7137710FC375FE00CB118A /* d-padOn.tif in Resources */ = {isa = PBXBuildFile; fileRef = CB71376F0FC375FE00CB118A /* d-padOn.tif */; };
 		CB9CDD860FBA40D2007AB3C3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CDD850FBA40D2007AB3C3 /* Carbon.framework */; };
@@ -19,7 +21,7 @@
 		CB9CDD940FBA4100007AB3C3 /* TdxDevEvents.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB9CDD910FBA4100007AB3C3 /* TdxDevEvents.mm */; };
 		CB9CDDD30FBBE7A9007AB3C3 /* TdxDevEvents.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CB9CDD900FBA4100007AB3C3 /* TdxDevEvents.h */; };
 		CB9CDDE70FBBE7F6007AB3C3 /* VVOSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CDDE60FBBE7F6007AB3C3 /* VVOSC.framework */; };
-		CB9CDE470FBBF126007AB3C3 /* 3DconnexionClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CDE460FBBF126007AB3C3 /* 3DconnexionClient.framework */; };
+		CB9CDE470FBBF126007AB3C3 /* 3DconnexionClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9CDE460FBBF126007AB3C3 /* 3DconnexionClient.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CB9CDE940FBC7F34007AB3C3 /* SpaceNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CDE930FBC7F34007AB3C3 /* SpaceNavigator.m */; };
 		CB9CE03F0FBCA34B007AB3C3 /* ButtonOff.tif in Resources */ = {isa = PBXBuildFile; fileRef = CB9CE03D0FBCA34B007AB3C3 /* ButtonOff.tif */; };
 		CB9CE0400FBCA34B007AB3C3 /* ButtonOn.tif in Resources */ = {isa = PBXBuildFile; fileRef = CB9CE03E0FBCA34B007AB3C3 /* ButtonOn.tif */; };
@@ -64,6 +66,8 @@
 		32CA4F630368D1EE00C91783 /* MOSCOW_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSCOW_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MOSCOW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOSCOW.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB66D8910FCC9E3F006B9905 /* wiiaccellbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wiiaccellbg.png; sourceTree = "<group>"; };
+		CB66D89D0FCCBAFA006B9905 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		CB71376E0FC375FE00CB118A /* d-padOff.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "d-padOff.tif"; sourceTree = "<group>"; };
 		CB71376F0FC375FE00CB118A /* d-padOn.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "d-padOn.tif"; sourceTree = "<group>"; };
 		CB9CDD850FBA40D2007AB3C3 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -170,6 +174,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB66D89D0FCCBAFA006B9905 /* background.png */,
+				CB66D8910FCC9E3F006B9905 /* wiiaccellbg.png */,
 				CB71376E0FC375FE00CB118A /* d-padOff.tif */,
 				CB71376F0FC375FE00CB118A /* d-padOn.tif */,
 				CB9CE03D0FBCA34B007AB3C3 /* ButtonOff.tif */,
@@ -250,6 +256,8 @@
 				CB9CE0400FBCA34B007AB3C3 /* ButtonOn.tif in Resources */,
 				CB7137700FC375FE00CB118A /* d-padOff.tif in Resources */,
 				CB7137710FC375FE00CB118A /* d-padOn.tif in Resources */,
+				CB66D8920FCC9E3F006B9905 /* wiiaccellbg.png in Resources */,
+				CB66D89E0FCCBAFA006B9905 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

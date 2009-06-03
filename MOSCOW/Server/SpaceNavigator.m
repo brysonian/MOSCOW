@@ -32,7 +32,8 @@ SpaceNavigator *pNavigator;
 #ifndef __TdxDeviceEvents_h__
 #define __TdxDeviceEvents_h__
 
-#import "3DconnexionClient/ConnexionClientAPI.h"
+//import "3DconnexionClient/ConnexionClientAPI.h"
+#import <3DconnexionClient/ConnexionClientAPI.h>
 
 // =============================================================================
 #pragma mark 3Dconnexion events information
@@ -145,6 +146,25 @@ namespace tdx
 
 @synthesize leftButtonDown;
 @synthesize rightButtonDown;
+
+
++ (BOOL)isAvailable
+{
+    static BOOL _available=NO;
+    static BOOL _initialized=NO;
+	
+    if (_initialized)
+        return _available;
+	
+    NSBundle* bundle;
+    bundle = [NSBundle bundleWithPath:@"/Library/Frameworks/3DconnexionClient.framework"];
+    if (bundle) {
+        _available = [bundle load];
+    }
+    _initialized=YES;
+	
+    return _available;
+}
 
 
 - (id)init

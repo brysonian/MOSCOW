@@ -52,6 +52,8 @@ enum {
 @property (readonly) float rotationY;
 @property (readonly) float rotationZ;
 
++ (BOOL)isAvailable;
+
 /**
  Accessors for state
  */

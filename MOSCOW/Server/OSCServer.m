@@ -81,7 +81,7 @@
 	[msg addFloat:x];
 	[msg addFloat:y];
 	[msg addFloat:z];
-	//[outPort sendThisMessage:msg];	
+	[outPort sendThisMessage:msg];	
 }
 
 - (void)sendWiiMoteJoyStickX:(float)x Y:(float)y

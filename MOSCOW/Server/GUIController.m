@@ -21,6 +21,11 @@
 
 	[searchIndicator startAnimation:self];
 
+	if (![SpaceNavigator isAvailable]) {
+		[spaceNavigatorHUD close];
+	}
+	
+	
 }
 
 
@@ -52,7 +57,6 @@
 	
 	[super spaceNavigatorValuesChanged:translation rotation:rotation];
 }
-
 
 #pragma mark WiiMote Delegate Methods
 - (void)WiiRemoteDiscovered:(WiiRemote*)wiimote

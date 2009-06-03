@@ -22,7 +22,9 @@
 #import "TdxDevEvents.h"
 
 @class OSCServer;
+
 #import "SpaceNavigator.h"
+
 #import <WiiRemote/WiiRemote.h>
 #import <WiiRemote/WiiRemoteDiscovery.h>
 
@@ -30,7 +32,10 @@
 @interface Controller : NSObject
 {	
 	
+//ifdef _H_connexionclient
 	SpaceNavigator *navigator;
+//endif
+	
 	OSCServer *oscserver;
 
 	/** Object which handles discovery of wiimote, part of the WiiRemote Framework */
@@ -49,9 +54,10 @@
 
 
 #pragma mark SpaceNavigator Actions
+//ifdef _H_connexionclient
 - (void)spaceNavigatorButtonChanged:(SpaceNavigatorButtonType)type isPressed:(BOOL)isPressed;
 - (void)spaceNavigatorValuesChanged:(float *)translation rotation:(float *)rotation;
-
+//endif
 
 #pragma mark WiiMote Delegate Methods
 - (void)WiiRemoteDiscovered:(WiiRemote*)wiimote;
