@@ -28,6 +28,10 @@
 	
 }
 
+- (void)dealloc
+{
+	[super dealloc];
+}
 
 #pragma mark SpaceNavigator Delegate Methods
 - (void)spaceNavigatorButtonChanged:(SpaceNavigatorButtonType)type isPressed:(BOOL)isPressed

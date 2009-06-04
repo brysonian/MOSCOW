@@ -10,7 +10,7 @@
 #define kNavigatorRotationAddress @"/sp/1/rot/xyz"
 #define kNavigatorButtonAddressFormat @"/sp/1/button/%d"
 
-#define kWiiMoteAccerometerAddress @"/wii/1/accel/pry"
+#define kWiiMoteAccerometerAddress @"/wii/1/accel/xyz"
 #define kWiiMoteJoyStickAddress @"/wii/1/nunchuk/pry"
 
 #define kWiiMoteButtonAddressFormat @"/wii/1/button/%@"

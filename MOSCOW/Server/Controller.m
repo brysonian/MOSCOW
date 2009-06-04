@@ -45,7 +45,6 @@
 	if (navigator) [navigator release], navigator = nil;
 	
 	if (wii) {
-		[wii closeConnection];
 		[wii release], wii = nil;
 	}
 	if (discovery) [discovery release], discovery = nil;
@@ -103,9 +102,22 @@
 #pragma mark WiiMote input handlers
 - (void)accelerationChanged:(WiiAccelerationSensorType)type accX:(unsigned char)accX accY:(unsigned char)accY accZ:(unsigned char)accZ wiiRemote:(WiiRemote*)wiiRemote
 {
-	[oscserver sendWiiMoteAccelerationX:(float)accX/255.0
-									  Y:(float)accY/255.0
-									  Z:(float)accZ/255.0];	
+	WiiAccCalibData data = [wii accCalibData:WiiRemoteAccelerationSensor];
+	int x0 = data.accX_zero;
+	int x3 = data.accX_1g;
+	int y0 = data.accY_zero;
+	int y2 = data.accY_1g;
+	int z0 = data.accZ_zero;
+	int z1 = data.accZ_1g;
+
+	float ay = (((float) (accY - y0) / (y2 - y0)) + 1) / 2.0;
+	float ax = (((float)(accX - x0) / (x3 - x0)) + 1) / 2.0;
+	float az = (((float)(accZ - z0) / (z1 - z0) * (-1.0)) + 1) / 2.0;
+
+	[oscserver sendWiiMoteAccelerationX:(float)ax
+									  Y:(float)ay
+									  Z:(float)az];	
+	
 }
 
 
